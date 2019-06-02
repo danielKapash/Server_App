@@ -1,0 +1,6 @@
+Option a: The first option is much faster, since reading the token each time from the server
+takes way more time than from the shared preferences.
+
+Option b: Reading the token each time from the server is more reliable, even though we know that
+it shouldn't, it is possible that at some point it will change and than the app won't work and the
+user will have to reinstall it.
