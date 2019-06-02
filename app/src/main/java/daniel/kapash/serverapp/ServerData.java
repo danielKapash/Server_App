@@ -1,6 +1,6 @@
 package daniel.kapash.serverapp;
 
-public class ConnectionResponse {
+public class ServerData {
     private String data;
 
     public String getData() {

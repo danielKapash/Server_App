@@ -2,11 +2,13 @@ package daniel.kapash.serverapp;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ServerApi {
 
     @GET("/")
-    Call<ConnectionResponse> checkConnection();
+    Call<ServerData> checkConnection();
 
-    
+    @GET("/users/{userName}/token")
+    Call<ServerData> getUserToken(@Path("userName") String userName);
 }

@@ -43,17 +43,17 @@ public class LaunchActivity extends AppCompatActivity {
 
     private void connectToServer() {
         MyApp app = (MyApp) getApplicationContext();
-        Call<ConnectionResponse> call = app.serverApi.checkConnection();
-        call.enqueue(new Callback<ConnectionResponse>() {
+        Call<ServerData> call = app.serverApi.checkConnection();
+        call.enqueue(new Callback<ServerData>() {
             @Override
-            public void onResponse(Call<ConnectionResponse> call, Response<ConnectionResponse> response) {
+            public void onResponse(Call<ServerData> call, Response<ServerData> response) {
                 if (!response.isSuccessful()) {
                     Log.d("server contact", "response not successful with code: " + response.code());
                     noConnectionDialog.show();
                 }
 
                 else {
-                    ConnectionResponse r = response.body();
+                    ServerData r = response.body();
                     Log.d("server contact", "response successful with data: " + r.getData());
                     startSuccessfulConnectionActivity();
                 }
@@ -61,7 +61,7 @@ public class LaunchActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ConnectionResponse> call, Throwable t) {
+            public void onFailure(Call<ServerData> call, Throwable t) {
                 Log.d("server contact", "response FAILLL: " + t.getMessage());
                 noConnectionDialog.show();
             }
