@@ -59,4 +59,8 @@ public class MyApp extends Application {
         editor.apply();
         this.token = token;
     }
+
+    public String getToken() {
+        return token;
+    }
 }
